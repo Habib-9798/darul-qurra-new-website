@@ -1,0 +1,92 @@
+﻿/* =========================================================
+   Base
+========================================================= */
+
+@layer base {
+  * {
+    @apply border-transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-cream text-dark font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(202, 162, 77, 0.14), transparent 24%),
+      radial-gradient(circle at 100% 0%, rgba(13, 107, 83, 0.12), transparent 22%),
+      linear-gradient(180deg, #fcfaf5 0%, #f7f3ea 42%, #f1eadc 100%);
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image:
+      linear-gradient(rgba(8, 69, 54, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(8, 69, 54, 0.025) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    z-index: -1;
+  }
+
+  ::selection {
+    background: rgba(202, 162, 77, 0.26);
+    color: #083629;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-brand-dark;
+  }
+
+  h1 {
+    line-height: 1.05;
+  }
+
+  h2 {
+    line-height: 1.1;
+  }
+
+  p {
+    @apply leading-7;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    @apply transition-all duration-300;
+  }
+
+  a {
+    @apply outline-none;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply text-dark placeholder:text-dark/38;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply outline-none ring-2 ring-gold/30 border-brand;
+    box-shadow: 0 0 0 6px rgba(202, 162, 77, 0.08);
+  }
+
+  img {
+    display: block;
+  }
+}
+

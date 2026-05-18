@@ -50,8 +50,8 @@ admissions@darulquran.edu.pk`,
     {
       icon: Clock,
       title: 'Office Hours',
-      body: `Monday – Saturday: 8:00 AM – 2:00 PM
-Friday: 8:00 AM – 12:00 PM
+      body: `Monday - Saturday: 8:00 AM - 2:00 PM
+Friday: 8:00 AM - 12:00 PM
 Closed on Sundays`,
       dark: true,
     },
@@ -125,7 +125,7 @@ Closed on Sundays`,
             </div>
 
             {/* Right Form */}
-            <div className="islamic-panel p-8 md:p-10">
+            <div className="islamic-panel premium-outline p-8 md:p-10">
               <div className="relative z-10">
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-gold">
                   <Sparkles className="h-4 w-4" />
@@ -145,10 +145,15 @@ Closed on Sundays`,
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-dark/80">
+                    <label
+                      htmlFor="contact-name"
+                      className="text-sm font-semibold text-dark/80"
+                    >
                       Full Name *
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       required
                       type="text"
                       className={fieldClassName}
@@ -158,10 +163,15 @@ Closed on Sundays`,
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold text-dark/80">
+                      <label
+                        htmlFor="contact-email"
+                        className="text-sm font-semibold text-dark/80"
+                      >
                         Email Address
                       </label>
                       <input
+                        id="contact-email"
+                        name="email"
                         type="email"
                         className={fieldClassName}
                         placeholder="email@example.com"
@@ -169,10 +179,15 @@ Closed on Sundays`,
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold text-dark/80">
+                      <label
+                        htmlFor="contact-phone"
+                        className="text-sm font-semibold text-dark/80"
+                      >
                         Phone Number *
                       </label>
                       <input
+                        id="contact-phone"
+                        name="phone"
                         required
                         type="tel"
                         className={fieldClassName}
@@ -182,10 +197,15 @@ Closed on Sundays`,
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold text-dark/80">
+                    <label
+                      htmlFor="contact-message"
+                      className="text-sm font-semibold text-dark/80"
+                    >
                       Message / Inquiry *
                     </label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       required
                       rows={6}
                       className={`${fieldClassName} resize-none`}
@@ -217,7 +237,7 @@ Closed on Sundays`,
       {/* Visit / Map Section */}
       <section className="pb-20 md:pb-24">
         <div className="container-shell">
-          <div className="premium-outline relative overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#041f19_0%,#083629_50%,#06271f_100%)] px-6 py-16 text-center text-cream shadow-[0_24px_80px_rgba(8,54,41,0.22)] md:px-12">
+          <div className="premium-outline shine-effect relative overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#041f19_0%,#083629_50%,#06271f_100%)] px-6 py-16 text-center text-cream shadow-[0_24px_80px_rgba(8,54,41,0.22)] md:px-12">
             <div
               className="absolute inset-0 opacity-14"
               style={{
@@ -242,7 +262,9 @@ Closed on Sundays`,
               </p>
 
               <a
-                href="#"
+                href="https://maps.google.com/?q=Darul%20Qurra%20Educational%20Complex%20Hayatabad%20Peshawar"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="gold-btn inline-flex items-center gap-2 px-6"
               >
                 Open Directions

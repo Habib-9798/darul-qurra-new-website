@@ -47,7 +47,7 @@ export default function PrivacyPolicyPage() {
             />
           </div>
 
-          <div className="surface-card p-8 md:p-10">
+          <div className="surface-card premium-outline p-8 md:p-10">
             <div className="space-y-8">
               {sections.map(([title, desc]) => (
                 <div

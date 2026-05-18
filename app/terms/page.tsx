@@ -43,11 +43,11 @@ export default function TermsPage() {
             <SectionTitle
               title="Website Terms & Conditions"
               subtitle="Use & Responsibility"
-              description="These terms outline the general conditions governing website usage, informational content, and communication through Darul Qurra’s site."
+              description="These terms outline the general conditions governing website usage, informational content, and communication through Darul Qurra's site."
             />
           </div>
 
-          <div className="surface-card p-8 md:p-10">
+          <div className="surface-card premium-outline p-8 md:p-10">
             <div className="space-y-8">
               {sections.map(([title, desc]) => (
                 <div

@@ -1,0 +1,17 @@
+export const siteConfig = {
+  name: 'Darul Qurra',
+  locationLabel: 'Peshawar, KP, Pakistan',
+  city: 'Peshawar',
+  province: 'KP',
+  country: 'Pakistan',
+  phone: '+92 91 123 4567',
+  phoneHref: 'tel:+92911234567',
+  whatsapp: '+92 300 123 4567',
+  email: 'info@darulquran.edu.pk',
+  emailHref: 'mailto:info@darulquran.edu.pk',
+  admissionsEmail: 'admissions@darulquran.edu.pk',
+  admissionsEmailHref: 'mailto:admissions@darulquran.edu.pk',
+  address: 'Darul Qurra, University Road, Peshawar, KP, Pakistan',
+  officeHours: 'Mon-Sat: 08:00 AM - 05:00 PM',
+  establishedYear: 1969,
+};

@@ -36,7 +36,7 @@ export default function CoursesPage() {
                 [
                   GraduationCap,
                   'Advanced Mastery',
-                  'Hifz, Qira’at, and scholar-guided advanced recitation for serious learners.',
+                  "Hifz, Qira'at, and scholar-guided advanced recitation for serious learners.",
                 ],
                 [
                   Clock3,
@@ -46,7 +46,7 @@ export default function CoursesPage() {
               ].map(([Icon, title, desc]) => (
                 <div
                   key={title as string}
-                  className="premium-outline rounded-[24px] border border-gold/12 bg-cream/60 p-5"
+                  className="premium-outline card-hover-glow rounded-[24px] border border-gold/12 bg-cream/60 p-5 transition-all duration-500 hover:-translate-y-1"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold/10 text-brand">
                     <Icon className="h-5 w-5" />

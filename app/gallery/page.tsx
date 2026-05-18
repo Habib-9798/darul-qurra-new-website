@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { PageHero, SectionTitle, CTABanner } from '@/src/components/ui/Shared';
 import { Sparkles } from 'lucide-react';
 
@@ -59,7 +60,7 @@ export default function GalleryPage() {
             <SectionTitle
               title="Life in the Madrasa"
               subtitle="Campus Gallery"
-              description="A collection of moments reflecting the spiritual atmosphere, disciplined learning, and community warmth of Darul Qurra ."
+              description="A collection of moments reflecting the spiritual atmosphere, disciplined learning, and community warmth of Darul Qurra."
             />
           </div>
 
@@ -69,9 +70,11 @@ export default function GalleryPage() {
                 key={i}
                 className={`premium-outline interactive-card group relative overflow-hidden rounded-[28px] shadow-[0_18px_60px_rgba(8,54,41,0.08)] transition-all hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(8,54,41,0.14)] ${img.span || ''}`}
               >
-                <img
+                <Image
                   src={img.url}
                   alt={img.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />

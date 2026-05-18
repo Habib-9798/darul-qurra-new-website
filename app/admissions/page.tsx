@@ -1,11 +1,9 @@
-'use client';
-
 import {
   PageHero,
   SectionTitle,
-  ApplicationForm,
   CTABanner,
 } from '@/src/components/ui/Shared';
+import { ApplicationForm } from '@/src/components/forms/ApplicationForm';
 import {
   Phone,
   CheckCircle,
@@ -51,7 +49,7 @@ export default function AdmissionsPage() {
               {
                 icon: FileText,
                 title: 'Huffaz & Scholars',
-                desc: 'Advanced placement for current Huffaz seeking Tajweed refinement, Ijazah, or Qira’at specialization.',
+                desc: "Advanced placement for current Huffaz seeking Tajweed refinement, Ijazah, or Qira'at specialization.",
               },
               {
                 icon: Clock,
@@ -159,7 +157,7 @@ export default function AdmissionsPage() {
 
             <div className="space-y-8">
               {/* Helpline */}
-              <div className="surface-card p-8">
+              <div className="surface-card surface-card-hover p-8">
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-gold">
                   <Sparkles className="h-4 w-4" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.24em]">
@@ -209,7 +207,7 @@ export default function AdmissionsPage() {
               </div>
 
               {/* Documents */}
-              <div className="surface-card p-8">
+              <div className="surface-card surface-card-hover p-8">
                 <h3 className="mb-6 flex items-center gap-3 text-xl font-bold text-brand-dark">
                   <ClipboardList className="h-6 w-6 text-brand" />
                   Required Documents
@@ -241,7 +239,7 @@ export default function AdmissionsPage() {
               </div>
 
               {/* Quick trust card */}
-              <div className="premium-outline overflow-hidden rounded-[28px] bg-[linear-gradient(135deg,#0d6b53,#094536)] p-7 text-cream shadow-[0_20px_50px_rgba(13,107,83,0.22)]">
+              <div className="premium-outline shine-effect overflow-hidden rounded-[28px] bg-[linear-gradient(135deg,#0d6b53,#094536)] p-7 text-cream shadow-[0_20px_50px_rgba(13,107,83,0.22)]">
                 <h3 className="mb-3 text-xl font-bold text-cream">
                   What happens after you apply?
                 </h3>
@@ -285,7 +283,7 @@ export default function AdmissionsPage() {
                 a: 'Yes, we have dedicated and segregated facilities for female students, taught by qualified female scholars and instructors.',
               },
             ].map((item) => (
-              <div key={item.q} className="surface-card p-8">
+              <div key={item.q} className="surface-card surface-card-hover p-8">
                 <h4 className="mb-3 text-lg font-bold text-brand-dark">
                   {item.q}
                 </h4>
@@ -326,4 +324,4 @@ export default function AdmissionsPage() {
       <CTABanner />
     </div>
   );
-}  
+}

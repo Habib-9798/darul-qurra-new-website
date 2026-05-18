@@ -1,0 +1,302 @@
+﻿/* =========================================================
+   Keyframes
+========================================================= */
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatX {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(202, 162, 77, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(202, 162, 77, 0.18);
+  }
+}
+
+@keyframes softRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleFade {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes revealBlur {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowBackgroundMove {
+  0% {
+    background-position: 0 0, 0 0, center;
+  }
+  50% {
+    background-position: 36px 42px, -28px 20px, center;
+  }
+  100% {
+    background-position: 0 0, 0 0, center;
+  }
+}
+
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes goldLineGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 76px;
+    opacity: 1;
+  }
+}
+
+@keyframes heroImageZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes floatingGlow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.08);
+    opacity: 0.75;
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-140%) rotate(18deg);
+  }
+  100% {
+    transform: translateX(140%) rotate(18deg);
+  }
+}
+
+@keyframes softBokehFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(22px, -28px, 0) scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+@keyframes particleDrift {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 34px 48px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes mapGlowPulse {
+  0%, 100% {
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.22),
+      0 0 0 rgba(202, 162, 77, 0);
+  }
+  50% {
+    box-shadow:
+      0 28px 90px rgba(0, 0, 0, 0.32),
+      0 0 42px rgba(202, 162, 77, 0.24);
+  }
+}
+
+@keyframes textRevealSoft {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes imageMaskReveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0 round 28px);
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 28px);
+    transform: scale(1);
+  }
+}
+
+@keyframes lineDraw {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes morphBlob {
+  0%, 100% {
+    border-radius: 42% 58% 48% 52% / 46% 42% 58% 54%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  35% {
+    border-radius: 58% 42% 60% 40% / 38% 56% 44% 62%;
+    transform: translate3d(16px, -18px, 0) scale(1.04);
+  }
+  70% {
+    border-radius: 48% 52% 40% 60% / 58% 44% 56% 42%;
+    transform: translate3d(-14px, 12px, 0) scale(0.98);
+  }
+}
+
+@keyframes premiumGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes counterPop {
+  0% {
+    transform: translateY(14px) scale(0.92);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes softFloatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes buttonPulseGold {
+  0%, 100% {
+    box-shadow:
+      0 14px 30px rgba(202, 162, 77, 0.22),
+      0 0 0 rgba(202, 162, 77, 0);
+  }
+  50% {
+    box-shadow:
+      0 18px 42px rgba(202, 162, 77, 0.34),
+      0 0 34px rgba(202, 162, 77, 0.18);
+  }
+}
+

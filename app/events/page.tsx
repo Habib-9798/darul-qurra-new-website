@@ -26,6 +26,7 @@ export default function EventsPage() {
           <div className="space-y-6">
             {announcements.map((announcement) => (
               <article
+                id={announcement.slug}
                 key={announcement.id}
                 className="surface-card surface-card-hover premium-outline group flex flex-col gap-6 p-6 md:flex-row md:items-center md:p-8"
               >
@@ -60,7 +61,7 @@ export default function EventsPage() {
                   </p>
 
                   <Link
-                    href="#"
+                    href={`/events#${announcement.slug}`}
                     className="group inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors duration-300 hover:text-gold"
                   >
                     Read Full Detail
@@ -71,7 +72,7 @@ export default function EventsPage() {
             ))}
           </div>
 
-          <div className="premium-outline relative mt-16 overflow-hidden rounded-[34px] bg-[linear-gradient(135deg,#041f19_0%,#083629_50%,#06271f_100%)] p-8 text-center text-cream shadow-[0_22px_70px_rgba(8,54,41,0.22)] md:p-12">
+          <div className="premium-outline shine-effect relative mt-16 overflow-hidden rounded-[34px] bg-[linear-gradient(135deg,#041f19_0%,#083629_50%,#06271f_100%)] p-8 text-center text-cream shadow-[0_22px_70px_rgba(8,54,41,0.22)] md:p-12">
             <div
               className="absolute inset-0 opacity-14"
               style={{

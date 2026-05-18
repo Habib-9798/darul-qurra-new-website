@@ -27,7 +27,7 @@ export default function FAQsPage() {
 
           <div className="space-y-10">
             {faqs.map((categoryBlock, index) => (
-              <section key={index} className="surface-card p-7 md:p-8">
+              <section key={index} className="surface-card surface-card-hover p-7 md:p-8">
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-4 py-1.5 text-gold">
                   <Sparkles className="h-4 w-4" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.24em]">

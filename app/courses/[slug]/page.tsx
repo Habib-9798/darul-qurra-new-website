@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { programs, faculty } from '@/src/data/mockData';
 import { notFound } from 'next/navigation';
 import {
@@ -21,12 +22,13 @@ export function generateStaticParams() {
   return programs.map((p) => ({ slug: p.slug }));
 }
 
-export default function SingleCoursePage({
+export default async function SingleCoursePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const program = programs.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const program = programs.find((p) => p.slug === slug);
   if (!program) notFound();
 
   const related = programs.filter((p) =>
@@ -39,9 +41,12 @@ export default function SingleCoursePage({
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand-deep py-24 text-cream md:py-28">
         <div className="absolute inset-0 opacity-30">
-          <img
+          <Image
             src={program.image}
             alt={program.title}
+            fill
+            priority
+            sizes="100vw"
             className="h-full w-full scale-[1.03] object-cover mix-blend-screen"
             referrerPolicy="no-referrer"
           />
@@ -160,7 +165,7 @@ export default function SingleCoursePage({
 
             {/* Right */}
             <div className="space-y-8">
-              <div className="islamic-panel p-8 lg:sticky lg:top-24">
+              <div className="islamic-panel premium-outline p-8 lg:sticky lg:top-24">
                 <div className="relative z-10">
                   <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-gold/15 bg-gold/10 px-3 py-1 text-gold">
                     <GraduationCap className="h-4 w-4" />
@@ -232,11 +237,14 @@ export default function SingleCoursePage({
                     {teachers.map((teacher) => (
                       <div
                         key={teacher.id}
-                        className="premium-outline flex items-center gap-4 rounded-[22px] border border-gold/12 bg-cream/55 p-4"
+                        className="premium-outline card-hover-glow flex items-center gap-4 rounded-[22px] border border-gold/12 bg-cream/55 p-4 transition-all duration-500 hover:-translate-y-1"
                       >
-                        <img
+                        <Image
                           src={teacher.image}
                           alt={teacher.name}
+                          width={64}
+                          height={64}
+                          sizes="64px"
                           className="h-16 w-16 rounded-full object-cover ring-2 ring-white"
                           referrerPolicy="no-referrer"
                         />

@@ -188,12 +188,12 @@ export default function DonatePage() {
                   ],
                   [
                     'Trusted Giving',
-                    'Contributions are handled with care and in line with the institution’s mission.',
+                    "Contributions are handled with care and in line with the institution's mission.",
                   ],
                 ].map(([title, desc]) => (
                   <div
                     key={title}
-                    className="premium-outline rounded-[24px] border border-gold/12 bg-white/75 p-5"
+                    className="premium-outline card-hover-glow rounded-[24px] border border-gold/12 bg-white/75 p-5 transition-all duration-500 hover:-translate-y-1"
                   >
                     <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-gold/12 text-gold">
                       <BadgeDollarSign className="h-5 w-5" />

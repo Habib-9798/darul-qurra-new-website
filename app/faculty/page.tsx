@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { PageHero, SectionTitle, CTABanner } from '@/src/components/ui/Shared';
 import { faculty } from '@/src/data/mockData';
 import { BadgeCheck, BookOpen, Sparkles, GraduationCap } from 'lucide-react';
@@ -25,13 +26,16 @@ export default function FacultyPage() {
             {faculty.map((member) => (
               <article
                 key={member.id}
-                className="surface-card surface-card-hover premium-outline interactive-card overflow-hidden p-6 md:p-7"
+                className="surface-card surface-card-hover premium-outline interactive-card group overflow-hidden p-6 md:p-7"
               >
                 <div className="grid items-start gap-6 sm:grid-cols-[160px_1fr]">
                   <div className="relative overflow-hidden rounded-[26px]">
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
+                      width={320}
+                      height={320}
+                      sizes="(min-width: 640px) 160px, 100vw"
                       className="h-40 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-44"
                       referrerPolicy="no-referrer"
                     />
