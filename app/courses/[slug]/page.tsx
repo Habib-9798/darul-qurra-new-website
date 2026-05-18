@@ -12,7 +12,6 @@ import {
   ShieldCheck,
   FileText,
   BadgeCheck,
-  Sparkles,
   GraduationCap,
 } from 'lucide-react';
 import { CTABanner, SectionTitle } from '@/src/components/ui/Shared';
@@ -67,13 +66,6 @@ export default async function SingleCoursePage({
           </Link>
 
           <div className="hero-shell premium-outline max-w-4xl px-6 py-8 md:px-8 md:py-10">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-4 py-2 text-gold/90">
-              <Sparkles className="h-4 w-4" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.28em]">
-                {program.level} Level
-              </span>
-            </div>
-
             <h1 className="text-balance mb-5 text-4xl font-bold text-cream md:text-5xl lg:text-6xl">
               {program.title}
             </h1>
