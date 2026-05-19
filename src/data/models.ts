@@ -5,7 +5,7 @@ export interface Program {
   summary: string;
   overview: string;
   audience: string;
-  level: string;
+  level?: string;
   duration: string;
   format: string;
   outcomes: string[];
