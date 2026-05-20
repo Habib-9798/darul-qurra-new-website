@@ -1,7 +1,9 @@
-import { PageHero, SectionTitle, CTABanner } from '@/src/components/ui/Shared';
-import { announcements } from '@/src/data/mockData';
-import { Calendar, Tag, ArrowRight, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+
+import { PageHero, SectionTitle, CTABanner } from "@/src/components/ui/Shared";
+import { announcements } from "@/src/data/mockData";
+import { Calendar, Tag, ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function EventsPage() {
   return (
@@ -13,7 +15,16 @@ export default function EventsPage() {
         badge="Latest Updates"
       />
 
-      <section className="section-glow py-20 md:py-24">
+      {/* Section with image background */}
+      <section
+        className="section-glow py-20 md:py-24 relative"
+        style={{
+          backgroundImage: "url('/courses.page.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="container-shell relative z-10 max-w-5xl">
           <div className="surface-card mb-12 p-8 text-center md:p-10">
             <SectionTitle
@@ -32,10 +43,10 @@ export default function EventsPage() {
               >
                 <div className="hidden h-32 w-32 shrink-0 flex-col items-center justify-center rounded-full border border-gold/15 bg-cream/70 text-center md:flex">
                   <span className="text-3xl font-bold text-brand-dark">
-                    {announcement.date.split(' ')[1].replace(',', '')}
+                    {announcement.date.split(" ")[1].replace(",", "")}
                   </span>
                   <span className="text-sm font-semibold uppercase tracking-[0.24em] text-gold">
-                    {announcement.date.split(' ')[0]}
+                    {announcement.date.split(" ")[0]}
                   </span>
                 </div>
 
@@ -77,8 +88,8 @@ export default function EventsPage() {
               className="absolute inset-0 opacity-14"
               style={{
                 backgroundImage:
-                  'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.65) 1px, transparent 0)',
-                backgroundSize: '30px 30px',
+                  "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.65) 1px, transparent 0)",
+                backgroundSize: "30px 30px",
               }}
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,162,76,0.2),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_20%)]" />

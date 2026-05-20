@@ -65,8 +65,16 @@ Closed on Sundays`,
         badge="Get In Touch"
       />
 
-      {/* Main Contact Section */}
-      <section className="section-glow py-20 md:py-24">
+      {/* Main Contact Section with background image */}
+      <section
+        className="section-glow py-20 md:py-24 relative"
+        style={{
+          backgroundImage: "url('/courses.page.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="container-shell relative z-10">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
             {/* Left */}

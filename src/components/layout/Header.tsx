@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
@@ -45,9 +46,15 @@ export function Header() {
 
           <div className="relative flex items-center justify-between gap-4 px-4 py-3 md:px-5 lg:px-6">
             <Link href="/" className="group flex min-w-0 items-center gap-3">
-              <div className="glow-hover relative flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#0d6b53,#094536)] text-gold shadow-[0_16px_32px_rgba(13,107,83,0.22)] transition-all duration-500 group-hover:scale-[1.04] group-hover:shadow-[0_20px_40px_rgba(13,107,83,0.3)]">
-                <span className="font-serif text-lg font-bold">DQ</span>
-                <span className="absolute inset-[4px] rounded-full border border-gold/35" />
+              {/* Official Logo */}
+              <div className="relative h-12 w-12">
+                <Image
+                  src="/darul-qurra-logo.png"
+                  alt="Darul Qurra Logo"
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
               </div>
 
               <div className="min-w-0">
@@ -76,9 +83,7 @@ export function Header() {
                     )}
                   >
                     <span className="relative z-10">{item.name}</span>
-
                     <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
-
                     {active && (
                       <>
                         <span className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-gold/20" />

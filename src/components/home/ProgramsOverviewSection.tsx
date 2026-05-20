@@ -20,7 +20,7 @@ export function ProgramsOverviewSection() {
       <div className="container-shell relative z-10 max-w-7xl">
         <div className="reveal-up">
           <SectionTitle
-            title="Our Academic Programs"
+            title="Our Academic Departments & Courses"
             subtitle="Structured Learning"
             description="Carefully designed pathways for children, adults, Huffaz, and advanced students."
           />
