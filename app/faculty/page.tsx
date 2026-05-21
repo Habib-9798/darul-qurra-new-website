@@ -1,7 +1,120 @@
 import Image from 'next/image';
 import { PageHero, SectionTitle, CTABanner } from '@/src/components/ui/Shared';
-import { faculty } from '@/src/data/mockData';
-import { BadgeCheck, BookOpen, Sparkles, GraduationCap } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+
+const teachers = [
+   {
+    id: 1,
+    name: 'Qari Muhammad Ikram',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Muhammad Ikram .png',
+  },
+  {
+    id: 2,
+    name: 'Maulana Muhammad Ashiq',
+    designation: 'Moderator',
+    image: '/images/teachers/Molana Ashiq .png',
+  },
+  {
+    id: 3,
+    name: 'Mufti Zeeshan',
+    designation: 'supervisor & Dars-e-Nizami Teacher',
+    image: '/images/teachers/Mufti Zeeshan.png',
+  },
+  {
+    id: 4,
+    name: 'Qari Atta-ur-rehman Turabi',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Atta-ur-rehman-Turabi.png',
+  },
+ 
+  {
+    id: 5,
+    name: 'Qari Naseerullah',
+    designation: 'Hifz & Dars-e-Nizami Teacher',
+    image: '/images/teachers/Qari Naseer.png',
+  },
+  {
+    id: 6,
+    name: 'Maulana Said Umar',
+    designation: 'Dars-e-Nizami Teacher',
+    image: '/images/teachers/Molana Said Umar.png',
+  },
+  {
+    id: 7,
+    name: 'Qari Ukasha',
+    designation: 'Tajweed Teacher',
+    image: '/images/teachers/Qari Ukasha.png',
+  },
+  {
+    id: 9,
+    name: 'Qari Abdul Wahab',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Abdul Wahab.png',
+  },
+  {
+    id: 9,
+    name: 'Qari Muhammad Shah',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Muhammad Shah.png',
+  },
+  {
+    id: 10,
+    name: 'Maulana Amir Siraj',
+    designation: 'Dars-e-Nizami Teacher',
+    image: '/images/teachers/Qari Amir Siraj.png',
+  },
+  
+  {
+    id: 11,
+    name: 'Qari Atta-ur-rehman',
+    designation: 'Hifz Teacher',
+    image: '/images/teachers/Qari Atta-ur-rehman.png',
+  },
+  {
+    id: 12,
+    name: 'Qari Esmatullah',
+    designation: 'Senior Hifz Teacher',
+    image: '/images/teachers/Qari Esmatullah.png',
+  },
+  {
+    id: 13,
+    name: 'Qari Abdul-satar',
+    designation: 'Senior Hifz Teacher',
+    image: '/images/teachers/Qari Abd-us-satar.png',
+  },
+  {
+    id: 14,
+    name: 'Qari Hazrat Bilal',
+    designation: 'Tajweed Teacher',
+    image: '/images/teachers/Qari Hazrat Bilal.png',
+  },
+  {
+    id: 15,
+    name: 'Qari Munawar Shah',
+    designation: 'Tajweed Teacher',
+    image: '/images/teachers/Qari Munawar Shah.png',
+  },
+  {
+    id: 16,
+    name: 'Qari Muhibullah',
+    designation: 'Tajweed Teacher',
+    image: '/images/teachers/Qari Muhibullah.png',
+  },
+  {
+    id: 17,
+    name: 'Qari Shah Hussain',
+    designation: 'Senior Hifz & Tajweed Teacher',
+    image: '/images/teachers/Qari Shah Hussain.png',
+  },
+  {
+    id: 18,
+    name: 'Qari Hijratullah',
+    designation: 'Hifz Teacher',
+    image: '/images/teachers/Qari Hijratullah.png',
+  },
+  
+];
 
 export default function FacultyPage() {
   return (
@@ -22,81 +135,40 @@ export default function FacultyPage() {
             />
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {faculty.map((member) => (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {teachers.map((teacher) => (
               <article
-                key={member.id}
-                className="surface-card surface-card-hover premium-outline interactive-card group overflow-hidden p-6 md:p-7"
+                key={teacher.id}
+                className="surface-card surface-card-hover premium-outline interactive-card group overflow-hidden p-5 text-center md:p-6"
               >
-                <div className="grid items-start gap-6 sm:grid-cols-[160px_1fr]">
-                  <div className="relative overflow-hidden rounded-[26px]">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={320}
-                      height={320}
-                      sizes="(min-width: 640px) 160px, 100vw"
-                      className="h-40 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-44"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/30 to-transparent" />
+                <div className="relative overflow-hidden rounded-[26px]">
+                  <Image
+                    src={teacher.image}
+                    alt={teacher.name}
+                    width={420}
+                    height={420}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="h-72 w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    priority={teacher.id <= 3}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/30 to-transparent" />
+                </div>
+
+                <div className="mt-6">
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-gold">
+                    <Sparkles className="h-4 w-4" />
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.24em]">
+                      Faculty Profile
+                    </span>
                   </div>
 
-                  <div>
-                    <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-gold">
-                      <Sparkles className="h-4 w-4" />
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.24em]">
-                        Faculty Profile
-                      </span>
-                    </div>
+                  <h3 className="text-2xl font-bold text-brand-dark">
+                    {teacher.name}
+                  </h3>
 
-                    <h3 className="text-2xl font-bold text-brand-dark">
-                      {member.name}
-                    </h3>
-
-                    <p className="mt-1 font-medium text-gold">{member.title}</p>
-
-                    <p className="mt-4 text-sm leading-7 text-dark/68">
-                      {member.bio}
-                    </p>
-
-                    {(member.badges || []).length > 0 && (
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {(member.badges || []).map((badge) => (
-                          <span
-                            key={badge}
-                            className="inline-flex items-center gap-1 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold"
-                          >
-                            <BadgeCheck className="h-3.5 w-3.5" />
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="mt-5 rounded-[22px] border border-gold/12 bg-cream/60 p-4">
-                      <p className="mb-3 flex items-center gap-2 text-sm font-semibold text-brand-dark">
-                        <BookOpen className="h-4 w-4 text-gold" />
-                        Teaching Areas
-                      </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {member.courses.map((course) => (
-                          <span
-                            key={course}
-                            className="rounded-full border border-brand/8 bg-white px-3 py-1 text-xs font-medium text-dark/70 shadow-sm"
-                          >
-                            {course}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-5 flex items-center gap-2 text-sm text-dark/55">
-                      <GraduationCap className="h-4 w-4 text-brand" />
-                      <span>Dedicated to careful instruction and student growth</span>
-                    </div>
-                  </div>
+                  <p className="mt-2 font-medium text-gold">
+                    {teacher.designation}
+                  </p>
                 </div>
               </article>
             ))}

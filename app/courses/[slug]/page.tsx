@@ -33,7 +33,7 @@ export default async function SingleCoursePage({
   const related = programs.filter((p) =>
     program.relatedPrograms.includes(p.id)
   );
-  const teachers = faculty.filter((f) => program.facultyIds.includes(f.id));
+ const teachers = faculty.filter((f) => program.facultyIds.includes(String(f.id)));
 
   return (
     <div>

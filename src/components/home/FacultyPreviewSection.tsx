@@ -54,7 +54,7 @@ export function FacultyPreviewSection() {
                   width={500}
                   height={500}
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="h-72 w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                  className="h-72 w-full object-cover transition-all duration-700 group-hover:scale-[1.03]"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/92 via-brand-deep/20 to-transparent"></div>
