@@ -3,17 +3,17 @@ import { PageHero, SectionTitle, CTABanner } from '@/src/components/ui/Shared';
 import { Sparkles } from 'lucide-react';
 
 const teachers = [
-   {
+  {
     id: 1,
     name: 'Qari Muhammad Ikram',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/teachers/Qari Muhammad Ikram .png',
+    image: '/images/teachers/Qari-Muhammad-Ikram.png',
   },
   {
     id: 2,
     name: 'Maulana Muhammad Ashiq',
     designation: 'Moderator',
-    image: '/images/teachers/Molana Ashiq .png',
+    image: '/images/teachers/Molana-Ashiq.png',
   },
   {
     id: 3,
@@ -27,7 +27,6 @@ const teachers = [
     designation: 'Senior Tajweed Teacher',
     image: '/images/teachers/Qari Atta-ur-rehman-Turabi.png',
   },
- 
   {
     id: 5,
     name: 'Qari Naseerullah',
@@ -38,7 +37,7 @@ const teachers = [
     id: 6,
     name: 'Maulana Said Umar',
     designation: 'Dars-e-Nizami Teacher',
-    image: '/images/teachers/Molana Said Umar.png',
+    image: '/images/teachers/Molana-Said-Umar.png',
   },
   {
     id: 7,
@@ -47,24 +46,23 @@ const teachers = [
     image: '/images/teachers/Qari Ukasha.png',
   },
   {
-    id: 9,
+    id: 8,
     name: 'Qari Abdul Wahab',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/teachers/Qari Abdul Wahab.png',
+    image: '/images/teachers/Qari-Abdul-Wahab.png',
   },
   {
     id: 9,
     name: 'Qari Muhammad Shah',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/teachers/Qari Muhammad Shah.png',
+    image: '/images/teachers/Qari-Muhammad-Shah.png',
   },
   {
     id: 10,
     name: 'Maulana Amir Siraj',
     designation: 'Dars-e-Nizami Teacher',
-    image: '/images/teachers/Qari Amir Siraj.png',
+    image: '/images/teachers/Qari-Amir-Siraj.png',
   },
-  
   {
     id: 11,
     name: 'Qari Atta-ur-rehman',
@@ -87,13 +85,13 @@ const teachers = [
     id: 14,
     name: 'Qari Hazrat Bilal',
     designation: 'Tajweed Teacher',
-    image: '/images/teachers/Qari Hazrat Bilal.png',
+    image: '/images/teachers/Qari-Hazrat-Bilal.png',
   },
   {
     id: 15,
     name: 'Qari Munawar Shah',
     designation: 'Tajweed Teacher',
-    image: '/images/teachers/Qari Munawar Shah.png',
+    image: '/images/teachers/Qari-Munawar-Shah.png',
   },
   {
     id: 16,
@@ -105,7 +103,7 @@ const teachers = [
     id: 17,
     name: 'Qari Shah Hussain',
     designation: 'Senior Hifz & Tajweed Teacher',
-    image: '/images/teachers/Qari Shah Hussain.png',
+    image: '/images/teachers/Qari-Shah-Hussain.png',
   },
   {
     id: 18,
