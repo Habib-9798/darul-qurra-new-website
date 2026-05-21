@@ -11,6 +11,9 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif'
 export const metadata: Metadata = {
   title: 'Darul Qurra Peshawar',
   description: "A respected Islamic institute focused on Quran education, Tajweed, and Qira'at since 1969.",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
