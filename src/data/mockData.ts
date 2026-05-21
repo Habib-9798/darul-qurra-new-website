@@ -480,42 +480,29 @@ export const programs = [
 
 export const faculty = [
   {
-    id: "sheikh-abdullah",
-    name: "Sheikh Abdullah Bin Tariq",
-    title: "Head of Qira'at Department",
-    specialization: "Qira'at Ashra & Advanced Tajweed",
-    bio: "With over 30 years of teaching experience, Sheikh Abdullah holds multiple Ijazahs in the 10 modes of recitation. He is a respected senior scholar guiding our most advanced students.",
-    courses: ["Qira'at Specialization", "Advanced Tajweed"],
-    image: "https://images.unsplash.com/photo-1566492031523-0564ef1df233?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    badges: ["Senior Scholar", "Ijazah Holder"]
+    id: 1,
+    name: 'Qari Muhammad Ikram',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Muhammad Ikram .png',
   },
   {
-    id: "qari-usman",
-    name: "Qari Usman Ali",
-    title: "Senior Hifz Instructor",
-    specialization: "Quranic Memorization & Revision",
-    bio: "Qari Usman has helped hundreds of students complete their Hifz. His strict yet loving approach ensures students develop a lifelong bond with the Quran and retain their memorization.",
-    courses: ["Hifz Program", "Nazra Quran"],
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    id: 2,
+    name: 'Maulana Muhammad Ashiq',
+    designation: 'Moderator',
+    image: '/images/teachers/Molana Ashiq .png',
   },
   {
-    id: "ustadh-ibrahim",
-    name: "Ustadh Ibrahim Khan",
-    title: "Instructor, Adult Learning",
-    specialization: "Foundational Tajweed & Translation",
-    bio: "Ustadh Ibrahim specializes in teaching adults. His patient methodology breaks down complex rules into simple, manageable lessons for working professionals.",
-    courses: ["Adult Learning", "Short Courses"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    id: 3,
+    name: 'Mufti Zeeshan',
+    designation: 'supervisor & Dars-e-Nizami Teacher',
+    image: '/images/teachers/Mufti Zeeshan.png',
   },
   {
-    id: "qari-bilal",
-    name: "Qari Bilal Ahmed",
-    title: "Tajweed Instructor",
-    specialization: "Makharij & Sifat",
-    bio: "A young and dynamic teacher, Qari Bilal focuses on the precise articulation of letters. He leads the foundational Tajweed classes and manages our online student portal.",
-    courses: ["Tajweed Program", "Nazra Quran"],
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  }
+    id: 4,
+    name: 'Qari Atta-ur-rehman Turabi',
+    designation: 'Senior Tajweed Teacher',
+    image: '/images/teachers/Qari Atta-ur-rehman-Turabi.png',
+  },
 ];
 
 export const announcements = [
