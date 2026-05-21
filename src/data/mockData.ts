@@ -483,25 +483,25 @@ export const faculty = [
     id: 1,
     name: 'Qari Muhammad Ikram',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/teachers/Qari Muhammad Ikram .png',
+    image: '/images/Teachers/Qari Muhammad Ikram .png',
   },
   {
     id: 2,
     name: 'Maulana Muhammad Ashiq',
     designation: 'Moderator',
-    image: '/images/teachers/Molana Ashiq .png',
+    image: '/images/Teachers/Molana Ashiq .png',
   },
   {
     id: 3,
     name: 'Mufti Zeeshan',
     designation: 'supervisor & Dars-e-Nizami Teacher',
-    image: '/images/teachers/Mufti Zeeshan.png',
+    image: '/images/Teachers/Mufti Zeeshan.png',
   },
   {
     id: 4,
     name: 'Qari Atta-ur-rehman Turabi',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/teachers/Qari Atta-ur-rehman-Turabi.png',
+    image: '/images/Teachers/Qari Atta-ur-rehman-Turabi.png',
   },
 ];
 
