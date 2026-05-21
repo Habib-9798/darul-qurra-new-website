@@ -244,9 +244,9 @@ export default async function SingleCoursePage({
                           <p className="font-semibold text-brand-dark">
                             {teacher.name}
                           </p>
-                          <p className="text-sm text-gold">{teacher.title}</p>
+                          <p className="text-sm text-gold">{teacher.designation}</p>
                           <p className="mt-1 text-xs text-dark/60">
-                            {teacher.specialization}
+                            {teacher.designation}
                           </p>
                         </div>
                       </div>

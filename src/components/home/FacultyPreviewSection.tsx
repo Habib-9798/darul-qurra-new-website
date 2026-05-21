@@ -62,7 +62,7 @@ export function FacultyPreviewSection() {
                 <div className="absolute inset-x-0 bottom-0 p-5 text-cream">
                   <h3 className="text-xl font-bold text-cream">{teacher.name}</h3>
                   <p className="mt-1 text-sm font-medium text-gold">
-                    {teacher.title}
+                    {teacher.designation}
                   </p>
                 </div>
               </div>
