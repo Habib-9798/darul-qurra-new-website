@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // ← Added import
 import {
   MapPin,
   Phone,
@@ -30,11 +31,16 @@ export function Footer() {
           {/* Brand */}
           <div className="reveal-card">
             <div className="mb-6 flex items-center gap-3">
-              <div className="glow-hover relative flex h-12 w-12 items-center justify-center rounded-full bg-cream font-serif text-xl font-bold text-brand shadow-lg">
-                DQ
-                <span className="absolute inset-[4px] rounded-full border border-gold/40" />
+              <div className="glow-hover relative flex h-12 w-12 items-center justify-center rounded-full bg-cream shadow-lg">
+                {/* Official Logo */}
+                <Image
+                  src="/darul-qurra-logo.png"
+                  alt="Official Logo"
+                  width={48}
+                  height={48}
+                  className="rounded-full object-contain border border-gold/40"
+                />
               </div>
-
               <div>
                 <h2 className="font-serif text-xl font-bold leading-tight text-cream">
                   {siteConfig.name}
