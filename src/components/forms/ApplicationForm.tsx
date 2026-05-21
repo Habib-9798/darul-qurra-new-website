@@ -15,9 +15,38 @@ function ApplicationFormBase() {
   const defaultCourse = searchParams.get('course') || '';
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const payload = {
+      studentName: formData.get("studentName"),
+      guardianName: formData.get("guardianName"),
+      phoneNumber: formData.get("phoneNumber"),
+      whatsappNumber: formData.get("whatsappNumber"),
+      emailAddress: formData.get("emailAddress"),
+      studentAge: formData.get("studentAge"),
+      city: formData.get("city"),
+      desiredCourse: formData.get("desiredCourse"),
+      quranLevel: formData.get("quranLevel"),
+      preferredTiming: formData.get("preferredTiming"),
+      additionalMessage: formData.get("additionalMessage"),
+    };
+
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbxGAYIul5JqQ5E4PuRr5tV705aWCtxyR-sWYNkQmKqFZC2ZtW0mPq8dENc43aVFezs/exec", {
+        method: "POST",
+        mode: "no-cors",                           // ← FIX 1: prevents CORS preflight rejection
+        headers: { "Content-Type": "text/plain" }, // ← FIX 2: avoids triggering preflight
+        body: JSON.stringify(payload),
+      });
+    } catch (error) {
+      console.error("Submission failed:", error);
+    }
+
     setTimeout(() => {
       setIsSubmitting(false);
       router.push('/thank-you');
