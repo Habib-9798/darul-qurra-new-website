@@ -483,13 +483,13 @@ export const faculty = [
     id: 1,
     name: 'Qari Muhammad Ikram',
     designation: 'Senior Tajweed Teacher',
-    image: '/images/Teachers/Qari Muhammad Ikram .png',
+    image: '/images/Teachers/Qari-Muhammad-Ikram.png',
   },
   {
     id: 2,
     name: 'Maulana Muhammad Ashiq',
     designation: 'Moderator',
-    image: '/images/Teachers/Molana Ashiq .png',
+    image: '/images/Teachers/Molana-Ashiq.png',
   },
   {
     id: 3,
