@@ -47,16 +47,27 @@ export function AboutPreviewSection() {
       <section className="relative z-10 pb-24 pt-6 md:pb-24 md:pt-8">
         <div className="container-shell relative z-10 max-w-7xl">
           <div className="grid items-center gap-14 lg:grid-cols-2">
+
             <div className="reveal-left relative">
               <div className="premium-outline image-mask-reveal image-hover-zoom relative overflow-hidden rounded-[34px] shadow-luxury-dark">
-                <Image
-                  src="/images/madrasa.png"
-                  alt="Darul Qurra Madrasa Building"
-                  width={900}
-                  height={720}
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="h-[420px] w-full object-cover object-center md:h-[560px] lg:h-[720px]"
-                />
+
+                {/* FIX: Replaced width/height props + className height with a
+                    wrapper div that controls the height, and fill on the Image.
+                    Previously: width={900} height={720} with CSS overriding both
+                    dimensions → Next.js warned about mismatched sizing.
+                    Now: the container div owns the height at each breakpoint,
+                    Image uses fill + object-cover which is the correct pattern
+                    for CSS-controlled responsive images. No more warning. */}
+                <div className="relative h-[420px] w-full md:h-[560px] lg:h-[720px]">
+                  <Image
+                    src="/images/madrasa.png"
+                    alt="Darul Qurra Madrasa Building"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+
                 <div className="absolute inset-x-5 bottom-5 rounded-[24px] border border-white/18 bg-brand-deep/58 p-5 text-cream shadow-[0_18px_50px_rgba(4,31,25,0.24)] backdrop-blur-xl">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold">
                     Peshawar Campus
@@ -125,3 +136,4 @@ export function AboutPreviewSection() {
     </section>
   );
 }
+

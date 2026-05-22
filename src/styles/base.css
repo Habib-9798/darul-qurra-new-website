@@ -1,5 +1,12 @@
 ﻿/* =========================================================
-   Base
+   Base — Optimized for scroll performance
+   Key changes:
+   1. background-attachment: fixed REMOVED — was disabling GPU compositing
+      and forcing full-page repaint on every scroll tick.
+      Replaced with a fixed pseudo-element that can be compositor-promoted.
+   2. body::before grid overlay promoted to own GPU layer via will-change.
+   3. transition-all on interactive elements scoped to specific properties
+      to reduce style recalculation cost.
 ========================================================= */
 
 @layer base {
@@ -8,18 +15,42 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* FIX: scroll-behavior: smooth removed from here.
+       Now handled via data-scroll-behavior="smooth" on the <html> tag
+       in layout.tsx — this is the correct Next.js App Router pattern
+       and prevents the console warning about route transitions. */
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* FIX: Removed background-attachment: fixed entirely.
+     Instead, the gradient is applied to a ::after pseudo-element that is
+     position: fixed and z-index: -2, which achieves the exact same visual
+     result but allows the browser to promote it to a compositor layer.
+     This eliminates the full-page background repaint on every scroll event. */
   body {
     @apply min-h-screen bg-cream text-dark font-sans antialiased;
+    position: relative;
+  }
+
+  /* FIX: Background gradient moved here as a fixed pseudo-element.
+     will-change: transform promotes it to its own GPU layer.
+     The visual result is identical to background-attachment: fixed. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
     background-image:
       radial-gradient(circle at 0% 0%, rgba(202, 162, 77, 0.14), transparent 24%),
       radial-gradient(circle at 100% 0%, rgba(13, 107, 83, 0.12), transparent 22%),
       linear-gradient(180deg, #fcfaf5 0%, #f7f3ea 42%, #f1eadc 100%);
-    background-attachment: fixed;
+    will-change: transform;
   }
 
+  /* FIX: Grid overlay kept as fixed pseudo-element but now promoted to
+     its own GPU layer. Previously this was repainting on every scroll frame.
+     will-change: transform isolates it completely. */
   body::before {
     content: "";
     position: fixed;
@@ -32,6 +63,7 @@
     background-size: 36px 36px;
     mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
     z-index: -1;
+    will-change: transform;
   }
 
   ::selection {
@@ -60,22 +92,25 @@
     @apply leading-7;
   }
 
+  /* FIX: transition-all is expensive — it watches every animatable property.
+     Scoped to only the properties actually used: color, background, border,
+     box-shadow, opacity. This cuts style recalculation cost on every hover/focus
+     across every interactive element on the page. */
   a,
-  button,
-  input,
-  select,
-  textarea {
-    @apply transition-all duration-300;
-  }
-
-  a {
+  button {
     @apply outline-none;
+    transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   input,
   select,
   textarea {
     @apply text-dark placeholder:text-dark/38;
+    transition-property: border-color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
   }
 
   input:focus,

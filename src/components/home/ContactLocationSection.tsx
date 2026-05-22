@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { MapPin, Phone } from 'lucide-react';
 
 export function ContactLocationSection() {
@@ -55,7 +54,6 @@ export function ContactLocationSection() {
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
                   <MapPin className="premium-icon-hover h-5 w-5" />
                 </div>
-
                 <div>
                   <h4 className="mb-1 font-semibold text-cream">
                     Campus Location
@@ -72,7 +70,6 @@ export function ContactLocationSection() {
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
                   <Phone className="premium-icon-hover h-5 w-5" />
                 </div>
-
                 <div>
                   <h4 className="mb-1 font-semibold text-cream">
                     Contact Office
@@ -87,22 +84,36 @@ export function ContactLocationSection() {
             </div>
           </div>
 
-          <div className="premium-outline map-glow group image-mask-reveal relative flex h-80 items-center justify-center overflow-hidden rounded-[28px] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.22)] md:h-[420px]">
-            <Image
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-              alt="Map-style city location preview"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-45"
-              referrerPolicy="no-referrer"
+          {/* FIX: Removed broken Unsplash image entirely.
+              The image was used as a decorative map background at opacity-35
+              (nearly invisible) behind a dark overlay — purely decorative.
+              Replaced with a CSS grid pattern that mimics a stylized map aesthetic.
+              Zero network request, zero 404, identical visual weight. */}
+          <div className="premium-outline map-glow group relative flex h-80 items-center justify-center overflow-hidden rounded-[28px] border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.22)] md:h-[420px]">
+
+            {/* CSS map-style background */}
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#041f19,#083629)]" />
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(202,162,77,0.4) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(202,162,77,0.4) 1px, transparent 1px)
+                `,
+                backgroundSize: '40px 40px',
+              }}
             />
-            <div className="absolute inset-0 bg-brand-deep/45"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(202,162,77,0.12),transparent_60%)]" />
+            {/* Map pin dot at center */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="h-3 w-3 rounded-full bg-gold shadow-[0_0_0_6px_rgba(202,162,77,0.2),0_0_0_12px_rgba(202,162,77,0.08)]" />
+            </div>
 
             <a
-              href="https://maps.google.com"
+              href="https://maps.google.com/?q=Darul+Qurra+University+Road+Peshawar"
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-button inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#d3aa56,#efcd7c)] px-8 py-3.5 text-sm font-bold text-brand-deep shadow-[0_18px_45px_rgba(202,162,77,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(202,162,77,0.38)]"
+              className="magnetic-button relative z-10 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#d3aa56,#efcd7c)] px-8 py-3.5 text-sm font-bold text-brand-deep shadow-[0_18px_45px_rgba(202,162,77,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(202,162,77,0.38)]"
             >
               <MapPin className="h-4 w-4" />
               Open Google Maps

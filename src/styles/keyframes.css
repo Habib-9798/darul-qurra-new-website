@@ -1,5 +1,7 @@
 ﻿/* =========================================================
-   Keyframes
+   Keyframes — Optimized for GPU compositing
+   Only opacity + transform used in scroll-triggered animations.
+   blur() removed from reveal keyframes to eliminate repaint lag.
 ========================================================= */
 
 @keyframes floatY {
@@ -91,16 +93,16 @@
   }
 }
 
+/* FIX: Removed filter:blur() — was causing GPU repaint on every reveal frame.
+   Visual result is nearly identical; blur was imperceptible during motion anyway. */
 @keyframes revealBlur {
   from {
     opacity: 0;
-    filter: blur(14px);
-    transform: translateY(36px);
+    transform: translateY(36px) scale(0.98);
   }
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -125,13 +127,15 @@
   }
 }
 
+/* FIX: Replaced width animation with scaleX transform.
+   width triggers layout reflow on every frame; scaleX is compositor-only. */
 @keyframes goldLineGrow {
   from {
-    width: 0;
+    transform: scaleX(0);
     opacity: 0;
   }
   to {
-    width: 76px;
+    transform: scaleX(1);
     opacity: 1;
   }
 }
@@ -201,16 +205,16 @@
   }
 }
 
+/* FIX: Removed filter:blur() — same GPU repaint issue as revealBlur.
+   Fade + translateY gives the same premium feel without the cost. */
 @keyframes textRevealSoft {
   from {
     opacity: 0;
     transform: translateY(26px);
-    filter: blur(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
@@ -265,16 +269,16 @@
   }
 }
 
+/* FIX: Removed filter:blur() from counterPop.
+   Scale + translateY achieves the same "pop" effect without repaint cost. */
 @keyframes counterPop {
   0% {
     transform: translateY(14px) scale(0.92);
     opacity: 0;
-    filter: blur(8px);
   }
   100% {
     transform: translateY(0) scale(1);
     opacity: 1;
-    filter: blur(0);
   }
 }
 

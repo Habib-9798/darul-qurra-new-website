@@ -22,7 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body className="flex min-h-screen flex-col" suppressHydrationWarning>
         <TopBar />
         <Header />
@@ -32,3 +37,4 @@ export default function RootLayout({
     </html>
   );
 }
+

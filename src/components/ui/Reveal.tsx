@@ -1,6 +1,5 @@
 'use client';
-
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useCallback } from 'react';
 
 type RevealType =
   | 'fade-up'
@@ -26,46 +25,52 @@ export function Reveal({
   once = true,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+
+  // KEY CHANGE: No useState. Directly manipulate the DOM class.
+  // This avoids React re-renders completely on scroll.
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          if (once) {
+            observer.unobserve(entry.target);
+          }
+        } else if (!once) {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    },
+    [once]
+  );
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
+    // Set delay via CSS custom property — avoids inline style recalc
+    if (delay > 0) {
+      element.style.setProperty('--reveal-delay', `${delay}ms`);
+    }
 
-          if (once) {
-            observer.unobserve(element);
-          }
-        } else if (!once) {
-          setVisible(false);
-        }
-      },
-      {
-        threshold: 0.18,
-        rootMargin: '0px 0px -8% 0px',
-      }
-    );
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.12,       // Slightly lower — more forgiving on mobile
+      rootMargin: '0px 0px -6% 0px',
+    });
 
     observer.observe(element);
 
     return () => {
       observer.unobserve(element);
     };
-  }, [once]);
+  }, [delay, handleIntersection]);
 
   return (
     <div
       ref={ref}
-      className={`premium-reveal premium-reveal-${type} ${
-        visible ? 'is-visible' : ''
-      } ${className}`}
-      style={{
-        transitionDelay: `${delay}ms`,
-      }}
+      className={`premium-reveal premium-reveal-${type}${
+        className ? ` ${className}` : ''
+      }`}
     >
       {children}
     </div>

@@ -64,7 +64,13 @@ interface HeroProps {
 export function PageHero({
   title,
   subtitle,
-  image = 'https://images.unsplash.com/photo-1564683214965-3619addd900d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+  // FIX: Replaced broken Unsplash URL with local hero image.
+  // The Unsplash URL was returning 404 because the external image was
+  // unavailable, causing a red error in the console on every page that
+  // uses PageHero (About, Admissions, Courses, Faculty, etc.).
+  // Using the same hero image already present in /public/images/ ensures
+  // it always loads, works offline/dev, and goes through Next.js optimization.
+  image = '/images/hero.bg.png',
   badge = 'Since 1969',
 }: HeroProps) {
   return (
@@ -72,12 +78,11 @@ export function PageHero({
       <div className="absolute inset-0 z-0">
         <Image
           src={image}
-          alt="Islamic Architecture"
+          alt="Darul Qurra Islamic Institute"
           fill
           priority
           sizes="100vw"
           className="hero-image-zoom h-full w-full scale-[1.04] object-cover opacity-20 mix-blend-screen"
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(201,162,76,0.18),transparent_20%),linear-gradient(to_bottom,rgba(4,31,25,0.62),rgba(6,39,31,0.96))]"></div>
         <div className="absolute inset-0 bg-grid-fade opacity-[0.06]"></div>
@@ -162,3 +167,4 @@ export function CTABanner() {
     </section>
   );
 }
+

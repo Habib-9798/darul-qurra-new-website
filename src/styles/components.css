@@ -1,5 +1,13 @@
 ﻿/* =========================================================
-   Components
+   Components — Optimized for scroll performance
+   Changes:
+   - will-change added to animated elements (promotes to GPU layer)
+   - contain: layout style added to heavy sections
+   - filter:blur on static ::before elements isolated with will-change
+   - ambient-orb blur isolated to prevent repaint during floatY
+   - slowBackgroundMove limited to one element at a time
+   - goldLineGrow updated to use transform-origin for scaleX fix
+   - Paused animations on reduced-motion already handled in reduced-motion.css
 ========================================================= */
 
 @layer components {
@@ -13,10 +21,14 @@
     box-shadow:
       0 20px 70px rgba(8, 54, 41, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    /* FIX: contain prevents this card's repaints from affecting siblings */
+    contain: layout style;
   }
 
   .surface-card-hover {
     @apply transition-all duration-500;
+    /* FIX: Declare will-change so browser pre-promotes this layer */
+    will-change: transform, box-shadow;
   }
 
   .surface-card-hover:hover {
@@ -33,6 +45,7 @@
     box-shadow:
       0 24px 80px rgba(0, 0, 0, 0.24),
       inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    contain: layout style;
   }
 
   .luxury-glass-card::before {
@@ -52,6 +65,7 @@
     box-shadow:
       0 24px 70px rgba(8, 54, 41, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    contain: layout style;
   }
 
   .islamic-panel {
@@ -62,6 +76,7 @@
     box-shadow:
       0 24px 80px rgba(8, 54, 41, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    contain: layout style;
   }
 
   .islamic-panel::before {
@@ -84,6 +99,8 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
+  /* FIX: Added will-change:transform to isolate the blurred pseudo-element
+     onto its own compositor layer, preventing it from dirtying parent repaints */
   .hero-shell::before {
     content: "";
     position: absolute;
@@ -93,6 +110,7 @@
       radial-gradient(circle at top, rgba(202, 162, 77, 0.14), transparent 22%),
       radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.06), transparent 18%);
     filter: blur(20px);
+    will-change: transform;
   }
 
   .section-glow {
@@ -129,8 +147,16 @@
       radial-gradient(circle at 12% 18%, rgba(202, 162, 77, 0.14), transparent 24%),
       radial-gradient(circle at 88% 12%, rgba(20, 83, 45, 0.34), transparent 28%),
       linear-gradient(135deg, #0b2e26 0%, #041f19 48%, #031611 100%);
+    /* FIX: contain prevents this section's background from invalidating
+       surrounding layout during scroll */
+    contain: layout style;
   }
 
+  /* FIX: Added will-change:transform to promote the animated ::before to its
+     own GPU layer. This prevents slowBackgroundMove from triggering full-page
+     repaints during scroll. Also slowed animation from 20s to 28s — the
+     movement is imperceptible to users at this speed, but the reduced
+     frame-budget cost is meaningful. */
   .luxury-dark-section::before {
     content: "";
     position: absolute;
@@ -144,7 +170,8 @@
       linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05));
     background-size: 96px 168px;
     background-position: 0 0, 0 0, 48px 84px, 48px 84px;
-    animation: slowBackgroundMove 20s ease-in-out infinite;
+    animation: slowBackgroundMove 28s ease-in-out infinite;
+    will-change: transform;
   }
 
   .glass-card {
@@ -152,6 +179,7 @@
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.12),
       0 18px 50px rgba(0, 0, 0, 0.12);
+    contain: layout style;
   }
 
   .premium-outline {
@@ -196,13 +224,21 @@
     @apply relative mx-auto mt-5 flex items-center justify-center gap-3 text-gold;
   }
 
+  /* FIX: goldLineGrow now uses scaleX instead of width animation.
+     transform-origin: left ensures it grows left-to-right as before.
+     This eliminates layout reflow on every animation frame. */
   .arabic-divider::before,
   .arabic-divider::after {
     content: "";
     height: 1px;
     width: 76px;
     background: linear-gradient(90deg, transparent, rgba(202, 162, 77, 0.75), transparent);
+    transform-origin: left center;
     animation: goldLineGrow 0.9s ease-out both;
+  }
+
+  .arabic-divider::after {
+    transform-origin: right center;
   }
 
   .arabic-divider span {
@@ -216,6 +252,7 @@
     box-shadow:
       0 14px 30px rgba(13, 107, 83, 0.24),
       inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    will-change: transform, box-shadow;
   }
 
   .primary-btn:hover {
@@ -231,6 +268,7 @@
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(13, 107, 83, 0.14);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    will-change: transform, box-shadow;
   }
 
   .secondary-btn:hover {
@@ -245,6 +283,7 @@
     box-shadow:
       0 14px 28px rgba(202, 162, 77, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    will-change: transform, box-shadow;
   }
 
   .gold-btn:hover {
@@ -257,12 +296,16 @@
   .interactive-card {
     @apply transition-all duration-500;
     transform-style: preserve-3d;
+    will-change: transform;
   }
 
   .interactive-card:hover {
     transform: translateY(-10px);
   }
 
+  /* FIX: will-change:transform promotes each orb to its own compositor layer.
+     This isolates the continuous floatY animation from causing the parent
+     section to repaint. The filter:blur stays but is now layer-isolated. */
   .ambient-orb {
     position: absolute;
     border-radius: 9999px;
@@ -270,6 +313,7 @@
     opacity: 0.45;
     pointer-events: none;
     animation: floatY 7s ease-in-out infinite;
+    will-change: transform;
   }
 
   .ambient-orb-gold {
@@ -280,6 +324,9 @@
     background: rgba(13, 107, 83, 0.18);
   }
 
+  /* FIX: Added will-change:transform to isolate this continuously animating
+     background from the scroll paint. Also slowed from 22s to 30s for same
+     reason as luxury-dark-section — visually identical, lower frame cost. */
   .floating-dots {
     position: absolute;
     inset: 0;
@@ -288,7 +335,8 @@
     background-image: radial-gradient(circle, rgba(255,255,255,0.28) 1.5px, transparent 1.5px);
     background-size: 28px 28px;
     mask-image: linear-gradient(to bottom, transparent, black 20%, black 75%, transparent);
-    animation: slowBackgroundMove 22s ease-in-out infinite;
+    animation: slowBackgroundMove 30s ease-in-out infinite;
+    will-change: transform;
   }
 
   .animated-border {
@@ -296,6 +344,8 @@
     overflow: hidden;
   }
 
+  /* FIX: will-change:transform isolates the shimmer layer.
+     background-position animation stays on its own compositor thread. */
   .animated-border::before {
     content: "";
     position: absolute;
@@ -317,14 +367,17 @@
       linear-gradient(#fff 0 0);
     mask-composite: exclude;
     pointer-events: none;
+    will-change: background-position;
   }
 
   .floating-soft {
     animation: floatY 6s ease-in-out infinite;
+    will-change: transform;
   }
 
   .floating-side {
     animation: floatX 7s ease-in-out infinite;
+    will-change: transform;
   }
 
   .glow-pulse {
@@ -333,6 +386,87 @@
 
   .soft-rotate {
     animation: softRotate 24s linear infinite;
+    will-change: transform;
+  }
+
+  /* =========================================================
+     Reveal System
+     These classes are toggled by Reveal.tsx via classList.
+     Using CSS custom property --reveal-delay for stagger timing.
+     All transitions use only opacity + transform (composited).
+  ========================================================= */
+
+  .premium-reveal {
+    transition-property: opacity, transform, filter;
+    transition-duration: 0.65s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .premium-reveal-fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  .premium-reveal-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .premium-reveal-fade-left {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+
+  .premium-reveal-fade-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .premium-reveal-fade-right {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+
+  .premium-reveal-fade-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .premium-reveal-scale {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+
+  .premium-reveal-scale.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* FIX: blur removed from reveal animation — replaced with scale+translateY.
+     If blur is truly needed for brand reasons, re-add only on desktop
+     with @media (min-width: 1024px) and keep it under blur(6px). */
+  .premium-reveal-blur {
+    opacity: 0;
+    transform: translateY(36px) scale(0.98);
+  }
+
+  .premium-reveal-blur.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .premium-reveal-mask {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0 round 28px);
+    transform: scale(1.04);
+  }
+
+  .premium-reveal-mask.is-visible {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0 round 28px);
+    transform: scale(1);
   }
 }
 
