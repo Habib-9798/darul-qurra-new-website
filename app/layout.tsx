@@ -5,8 +5,19 @@ import { TopBar } from '@/src/components/layout/TopBar';
 import { Header } from '@/src/components/layout/Header';
 import { Footer } from '@/src/components/layout/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif', display: 'swap' });
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-sans', 
+  display: 'swap',
+  preload: true,           // ✅ NEW
+});
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'], 
+  variable: '--font-serif', 
+  display: 'swap',
+  preload: true,           // ✅ NEW
+});
 
 export const metadata: Metadata = {
   title: 'Darul Qurra Peshawar',
@@ -28,6 +39,17 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      <head>
+        {/* ✅ NEW: Preconnect to Google Fonts for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* ✅ NEW: Preconnect to Unsplash if you use their images */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+
+        {/* ✅ NEW: DNS prefetch for faster external connections */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className="flex min-h-screen flex-col" suppressHydrationWarning>
         <TopBar />
         <Header />
