@@ -38,14 +38,14 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Phone & WhatsApp',
-      body: `Office: +92 91 123 4567
-Admissions: +92 300 123 4567`,
+      body: `Office: +92 333 7888891
+Admissions: +92 333 7888891`,
     },
     {
       icon: Mail,
       title: 'Email Address',
-      body: `info@darulquran.edu.pk
-admissions@darulquran.edu.pk`,
+      body: `darulqurra@gmail.com
+darulqurra@gmail.com`,
     },
     {
       icon: Clock,

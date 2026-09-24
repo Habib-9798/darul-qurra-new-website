@@ -74,7 +74,7 @@ export default function DonatePage() {
                       Meezan Bank Limited (Islamic)
                     </p>
                     <p className="text-sm text-dark/62">
-                      University Road Branch, Peshawar
+                      Madni Masjid Namak Mandi, Peshawar
                     </p>
                   </div>
                 </div>

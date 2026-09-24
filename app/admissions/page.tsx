@@ -90,12 +90,12 @@ export default function AdmissionsPage() {
               </div>
               <div>
                 <p className="text-sm font-bold text-brand-dark transition-colors group-hover:text-brand xl:text-base">Call Direct</p>
-                <p className="text-[13px] font-medium text-dark/60">+92 91 123 4567</p>
+                <p className="text-[13px] font-medium text-dark/60">+92 333 7888891</p>
               </div>
             </a>
 
             <a
-              href="mailto:admissions@darulquran.edu.pk"
+              href="mailto:darulqurra@gmail.com"
               className="group flex items-center gap-3.5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/5 text-brand shadow-sm transition-colors duration-300 group-hover:bg-brand group-hover:text-gold xl:h-11 xl:w-11">
@@ -104,7 +104,7 @@ export default function AdmissionsPage() {
               <div>
                 <p className="text-sm font-bold text-brand-dark transition-colors group-hover:text-brand xl:text-base">Email Us</p>
                 <p className="text-[13px] font-medium text-dark/60">
-                  admissions@darulquran.edu.pk
+                  darulqurra@gmail.com
                 </p>
               </div>
             </a>

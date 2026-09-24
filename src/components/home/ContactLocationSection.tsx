@@ -59,7 +59,7 @@ export function ContactLocationSection() {
                     Campus Location
                   </h4>
                   <p className="text-sm leading-7 text-cream/72">
-                    Darul Qurra Building, University Road,
+                    Darul Qurra Building, Madni Masjid Namak Mandi,
                     <br />
                     Peshawar, KP, Pakistan
                   </p>
@@ -75,9 +75,9 @@ export function ContactLocationSection() {
                     Contact Office
                   </h4>
                   <p className="text-sm leading-7 text-cream/72">
-                    +92 91 123 4567
+                    +92 333 7888891
                     <br />
-                    +92 300 1234567 (WhatsApp available)
+                    ++92 333 7888891  (WhatsApp available)
                   </p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export function ContactLocationSection() {
             </div>
 
             <a
-              href="https://maps.google.com/?q=Darul+Qurra+University+Road+Peshawar"
+              href="https://maps.google.com/?q=Darul+Qurra+Madni Masjid Namak Mandi, Peshawar"
               target="_blank"
               rel="noopener noreferrer"
               className="magnetic-button relative z-10 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#d3aa56,#efcd7c)] px-8 py-3.5 text-sm font-bold text-brand-deep shadow-[0_18px_45px_rgba(202,162,77,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(202,162,77,0.38)]"
