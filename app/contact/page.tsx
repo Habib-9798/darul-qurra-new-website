@@ -33,7 +33,7 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: 'Campus Location',
-      body: 'Darul Qurra Educational Complex, Opposite Main Jamia Masjid, Phase 3, Hayatabad, Peshawar, Khyber Pakhtunkhwa.',
+      body: 'Darul Qurra, Madni Masjid Namak Mandi, Peshawar KP, Pakistan',
     },
     {
       icon: Phone,
